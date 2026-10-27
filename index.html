@@ -81,6 +81,8 @@ code,pre,.mono{font-family:var(--mono)}
 .hero h1 em{font-style:normal;color:var(--tag)}
 .hero .sub{color:var(--ink-2);font-size:15px;max-width:640px}
 .hero-grid{display:grid;gap:18px;margin-top:26px}
+.hero-art{display:flex;justify-content:center;margin-top:24px}
+.hero-art svg{width:100%;max-width:560px;height:auto;display:block}
 .typer{
   background:#1F2328;border-radius:var(--radius);box-shadow:var(--shadow);
   overflow:hidden;
@@ -187,6 +189,15 @@ code,pre,.mono{font-family:var(--mono)}
   margin:0 0 14px;padding:0 0 0 13px;border-left:3px solid var(--tag);
   font-size:13.5px;color:var(--ink-2);line-height:1.7;
 }
+/* 章节小插画：图文并茂 */
+.ch-art{display:flex;justify-content:center;margin:0 0 6px}
+.ch-art svg{width:100%;max-width:300px;height:auto;display:block}
+@media(min-width:768px){
+  .ch-head{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+  .ch-head .ch-art{margin:0;flex:none}
+  .ch-head .ch-art svg{width:150px}
+  .ch-head .ch-intro{margin:0;padding-left:13px;flex:1}
+}
 .ch-empty{
   display:none;padding:14px 2px;font-size:14px;color:var(--ink-2);
 }
@@ -224,6 +235,12 @@ table.tags tr.miss{display:none}
 }
 .chip.dep{color:var(--amber);background:var(--amber-soft)}
 .chip.new{color:var(--green);background:var(--green-soft)}
+.chip.api-a{color:var(--attr);background:var(--tag-soft)}
+.chip.api-m{color:var(--green);background:var(--green-soft)}
+.api-link .api-name{
+  display:inline-block;font-family:var(--mono);font-size:12.5px;color:var(--attr);
+  background:var(--tag-soft);border-radius:5px;padding:1px 6px;margin-right:6px;
+}
 td.desc{font-size:14px;color:var(--ink)}
 td.ex code{
   display:block;font-size:12.5px;color:#3D4451;
@@ -272,6 +289,8 @@ mark{background:#FFE9A8;color:inherit;border-radius:2px;padding:0 1px}
 .badge.double{color:#6B5BD3;background:#EFECFB}
 .badge.dep{color:var(--amber);background:var(--amber-soft)}
 .badge.new{color:var(--green);background:var(--green-soft)}
+.badge.attr{color:var(--attr);background:#E7F0F9}
+.badge.method{color:var(--green);background:var(--green-soft)}
 .m-close{
   margin-left:auto;flex:none;width:32px;height:32px;border-radius:8px;border:0;
   background:var(--paper);color:var(--ink-2);cursor:pointer;display:flex;align-items:center;justify-content:center;
@@ -405,6 +424,35 @@ footer .wrap{display:flex;flex-direction:column;gap:6px}
         <div class="typer-body"><span class="line" id="typerLine"></span><span class="cur" id="typerCur"></span></div>
       </div>
       <div class="stats" id="heroStats"></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 640 150" role="img" aria-label="在电脑里写 HTML 标签">
+        <g fill="none" stroke="#D5E5F5" stroke-width="2">
+          <circle cx="90" cy="18" r="3"/><circle cx="560" cy="24" r="3"/><circle cx="620" cy="110" r="3"/>
+          <path d="M40 130 q30 -20 60 0 M520 130 q30 -20 60 0 M80 20 q160 -12 320 0"/>
+        </g>
+        <rect x="52" y="52" width="300" height="66" rx="8" fill="#1F2933"/>
+        <rect x="62" y="62" width="280" height="46" rx="4" fill="#F5F8FC"/>
+        <g font-family="monospace" font-size="12" fill="#C7254E">
+          <rect x="70" y="70" width="34" height="5" rx="2" fill="#C7254E"/><rect x="112" y="70" width="26" height="5" rx="2" fill="#6FB1E8"/>
+          <rect x="70" y="84" width="20" height="5" rx="2" fill="#C7254E"/><rect x="98" y="84" width="40" height="5" rx="2" fill="#4E7A45"/>
+          <rect x="70" y="98" width="30" height="5" rx="2" fill="#C7254E"/><rect x="108" y="98" width="24" height="5" rx="2" fill="#B45309"/>
+        </g>
+        <path d="M40 118 h324 q6 0 6 6 v6 q0 4 -6 4 h-18 l-14 8 h-40 l-10 -8 h-246 z" fill="#2E6FAB" opacity=".85"/>
+        <g transform="rotate(-6 428 40)">
+          <rect x="386" y="22" width="84" height="36" rx="9" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5" filter="drop-shadow(0 3px 6px rgba(31,41,51,.12))"/>
+          <text x="400" y="46" font-family="monospace" font-size="14" fill="#2E6FAB">&lt;h1&gt;标题&lt;/h1&gt;</text>
+        </g>
+        <g transform="rotate(4 512 92)">
+          <rect x="470" y="72" width="84" height="36" rx="9" fill="#FFFFFF" stroke="#6FB1E8" stroke-width="1.5" filter="drop-shadow(0 3px 6px rgba(31,41,51,.12))"/>
+          <text x="484" y="96" font-family="monospace" font-size="14" fill="#6FB1E8">&lt;img&gt;图片</text>
+        </g>
+        <g transform="rotate(-3 470 130)">
+          <rect x="428" y="112" width="84" height="36" rx="9" fill="#FFFFFF" stroke="#4E7A45" stroke-width="1.5" filter="drop-shadow(0 3px 6px rgba(31,41,51,.12))"/>
+          <text x="442" y="136" font-family="monospace" font-size="14" fill="#4E7A45">&lt;a&gt;链接</text>
+        </g>
+        <path d="M350 70 C 396 44 398 30 390 24 M350 84 C 396 96 470 88 470 84 M350 110 C 396 126 428 130 428 128" fill="none" stroke="#C9D2DC" stroke-width="1.5" stroke-dasharray="5 4"/>
+      </svg>
     </div>
   </div>
 </section>
@@ -976,7 +1024,7 @@ const DATA = [
     ["form","所属表单 id"]
   ]}
 ]},
-{id:"ch7", title:"媒体与嵌入", tags:[
+{id:"ch7", title:"媒体、嵌入与绘图", tags:[
   {t:"audio", d:"音频播放器，src 或内部 source 提供音频", new:true, kw:["sound","music","音频"], ex:'<audio src="song.mp3" controls></audio>', at:[
     ["src","音频地址"],
     ["controls","显示播放控件（播放/暂停/进度条）"],
@@ -1070,10 +1118,6 @@ const DATA = [
     ["type","类型","","dep"],
     ["valuetype","值类型（data/ref/object）","","dep"]
   ]},
-  {t:"canvas", d:"绘图画布：用 JavaScript 绘制图形（空元素，内容为降级提示）", empty:true, kw:["drawing","绘图","2d"], ex:'<canvas id="c" width="300" height="150">\n  浏览器不支持 canvas。\n</canvas>', at:[
-    ["width","画布宽（px，默认 300）","300"],
-    ["height","画布高（px，默认 150）","150"]
-  ]},
   {t:"svg", d:"SVG 矢量图形容器，内嵌 <circle>、<path> 等绘图元素", kw:["vector","矢量"], ex:'<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">\n  <circle cx="50" cy="50" r="40" fill="red"/>\n</svg>', at:[
     ["xmlns","命名空间（内联时建议写）","http://www.w3.org/2000/svg"],
     ["viewBox","可视坐标系","0 0 100 100"],
@@ -1088,10 +1132,119 @@ const DATA = [
     ["role","无障碍角色","img"],
     ["tabindex","键盘聚焦（配合 JS 交互）"]
   ]},
+  {t:"path", d:"SVG 路径：用指令（M/L/C/A/Z）绘制任意曲线与图形", empty:true, kw:["curve","曲线","路径"], ex:'<svg width="120" height="60"><path d="M10 50 L40 15 L70 50 L100 10" fill="none" stroke="#2E6FAB" stroke-width="3"/></svg>', at:[
+    ["d","路径指令序列：M 移动到 / L 直线 / H V 水平垂直 / C 三次贝塞尔 / Q 二次曲线 / A 圆弧 / Z 闭合","M10 50 L40 15 Z"],
+    ["fill","填充色","none"],
+    ["stroke","描边色"],
+    ["stroke-width","描边宽度","3"]
+  ]},
+  {t:"circle", d:"SVG 圆形", empty:true, kw:["round","圆"], ex:'<svg width="80" height="60"><circle cx="40" cy="30" r="24" fill="#6FB1E8"/></svg>', at:[
+    ["cx","圆心 x 坐标","40"],
+    ["cy","圆心 y 坐标","30"],
+    ["r","半径","24"],
+    ["fill","填充色"],
+    ["stroke","描边色"]
+  ]},
+  {t:"rect", d:"SVG 矩形（可设圆角）", empty:true, kw:["square","矩形","圆角"], ex:'<svg width="90" height="60"><rect x="8" y="8" width="74" height="44" rx="8" fill="#A3D29A"/></svg>', at:[
+    ["x","左上角 x","8"],
+    ["y","左上角 y","8"],
+    ["width","宽度","74"],
+    ["height","高度","44"],
+    ["rx","水平圆角半径","8"],
+    ["ry","垂直圆角半径"],
+    ["fill","填充色"]
+  ]},
+  {t:"line", d:"SVG 线段（两点连一线）", empty:true, kw:["straight","直线"], ex:'<svg width="100" height="40"><line x1="6" y1="32" x2="94" y2="8" stroke="#B45309" stroke-width="3"/></svg>', at:[
+    ["x1","起点 x","6"],
+    ["y1","起点 y","32"],
+    ["x2","终点 x","94"],
+    ["y2","终点 y","8"],
+    ["stroke","线条颜色","#B45309"],
+    ["stroke-width","线条粗细","3"]
+  ]},
+  {t:"ellipse", d:"SVG 椭圆（横向/纵向半径不同）", empty:true, kw:["oval","椭圆"], ex:'<svg width="100" height="60"><ellipse cx="50" cy="30" rx="44" ry="22" fill="#E9C46A"/></svg>', at:[
+    ["cx","圆心 x","50"],
+    ["cy","圆心 y","30"],
+    ["rx","水平半径","44"],
+    ["ry","垂直半径","22"],
+    ["fill","填充色"]
+  ]},
+  {t:"polygon", d:"SVG 多边形（自动闭合首尾）", empty:true, kw:["triangle","三角形","多边形"], ex:'<svg width="100" height="70"><polygon points="50,6 92,64 8,64" fill="#E76F51"/></svg>', at:[
+    ["points","顶点坐标列表，两两一组（x,y）","50,6 92,64 8,64"],
+    ["fill","填充色"],
+    ["stroke","描边色"]
+  ]},
+  {t:"polyline", d:"SVG 折线（不闭合，常用于走势图）", empty:true, kw:["trend","折线"], ex:'<svg width="110" height="60"><polyline points="8,50 30,14 52,44 74,10 100,50" fill="none" stroke="#9B5DE5" stroke-width="3"/></svg>', at:[
+    ["points","顶点坐标列表","8,50 30,14 52,44"],
+    ["fill","填充色（none 不填）","none"],
+    ["stroke","描边色"]
+  ]},
+  {t:"text", d:"SVG 文字（随矢量一起缩放）", empty:true, kw:["label","文字"], ex:'<svg width="140" height="40"><text x="8" y="28" font-size="20" fill="#2E6FAB" font-family="sans-serif">SVG 文字</text></svg>', at:[
+    ["x","文字起点 x","8"],
+    ["y","文字基线 y","28"],
+    ["font-size","字号","20"],
+    ["fill","文字颜色"],
+    ["text-anchor","对齐方式","start / middle / end"],
+    ["font-family","字体"]
+  ]},
+  {t:"g", d:"SVG 分组：把多个图形打包，统一变换与样式", kw:["group","分组"], ex:'<svg width="120" height="60"><g fill="#6FB1E8"><circle cx="30" cy="30" r="16"/><rect x="60" y="14" width="44" height="32" rx="6"/></g></svg>', at:[
+    ["transform","变换：translate 平移 / rotate 旋转 / scale 缩放","translate(10,10)"],
+    ["fill","统一填充色（子元素可单独覆盖）"],
+    ["stroke","统一描边色"]
+  ]},
+  {t:"defs", d:"SVG 定义区：存放可复用的渐变、符号、图形模板（本身不渲染）", kw:["define","模板"], ex:'<svg width="120" height="60"><defs><linearGradient id="gg"><stop offset="0%" stop-color="#6FB1E8"/><stop offset="100%" stop-color="#2E6FAB"/></linearGradient></defs><rect x="8" y="8" width="104" height="44" rx="8" fill="url(#gg)"/></svg>', at:[
+    ["id","给内部定义命名，供 use / fill=url(#id) 引用"]
+  ]},
+  {t:"use", d:"SVG 复用：引用 defs 中定义的图形，一处定义多处使用", empty:true, kw:["reuse","引用"], ex:'<svg width="120" height="60"><defs><circle id="dot" cx="0" cy="0" r="8" fill="#B45309"/></defs><use href="#dot" x="20" y="30"/><use href="#dot" x="50" y="30"/><use href="#dot" x="80" y="30"/></svg>', at:[
+    ["href","引用 defs 中元素的 id","#dot"],
+    ["x","复用位置的 x 偏移","20"],
+    ["y","复用位置的 y 偏移","30"],
+    ["width","复用宽度","","new"],
+    ["height","复用高度","","new"]
+  ]},
+  {t:"linearGradient", d:"SVG 线性渐变：让图形颜色沿方向平滑过渡", kw:["gradient","渐变"], ex:'<svg width="120" height="60"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#F4A261"/><stop offset="100%" stop-color="#E76F51"/></linearGradient></defs><rect x="8" y="8" width="104" height="44" rx="8" fill="url(#lg)"/></svg>', at:[
+    ["id","渐变名称，供 fill=url(#id) 引用"],
+    ["x1 / y1 / x2 / y2","渐变方向（0–1 或百分比）","0 0 1 0"],
+    ["gradientUnits","坐标单位","objectBoundingBox / userSpaceOnUse"]
+  ]},
+  {t:"stop", d:"SVG 渐变的颜色节点：声明某一位置的颜色，配合 linearGradient / radialGradient 使用", empty:true, kw:["gradient","color-stop"], ex:'<svg width="120" height="60"><defs><linearGradient id="sg"><stop offset="0%" stop-color="#F4A261"/><stop offset="100%" stop-color="#2E6FAB"/></linearGradient></defs><rect x="8" y="8" width="104" height="44" rx="8" fill="url(#sg)"/></svg>', at:[
+    ["offset","颜色节点的位置","0% / 50% / 100%"],
+    ["stop-color","该位置的颜色"],
+    ["stop-opacity","该位置的不透明度"]
+  ]},
   {t:"math", d:"MathML 数学公式容器（HTML5 中重新允许）", kw:["formula","数学"], ex:'<math xmlns="http://www.w3.org/1998/Math/MathML">\n  <msup><mi>x</mi><mn>2</mn></msup>\n</math>', at:[]}
 ]},
 
-{id:"ch8", title:"文本语义与交互", tags:[
+{id:"ch8", title:"Canvas 绘图（JS API）", tags:[
+  {t:"canvas", d:"绘图画布：配合 <script> 里的 JS 拿到 ctx，再调用 2D 绘图 API 画图（空元素，内容为降级提示）", empty:true, kw:["drawing","绘图","2d","canvas"], ex:'<canvas id="c" width="300" height="150">\n  浏览器不支持 canvas。\n</canvas>\n<script>\n  var ctx=document.getElementById("c").getContext("2d");\n  ctx.fillStyle="#2E6FAB";\n  ctx.fillRect(30,30,100,80);\n<\/script>', at:[
+    ["width","画布宽（px，默认 300）","300"],
+    ["height","画布高（px，默认 150）","150"]
+  ]},
+  {t:"fillStyle", api:true, kind:"attr", d:"填充样式：设置接下来绘制内容的颜色、渐变或图案", kw:["颜色","填充","样式"], ex:'<canvas id="c1" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c1").getContext("2d");\nctx.fillStyle="#2E6FAB";\nctx.fillRect(10,10,80,60);\nctx.fillStyle="#E76F51";\nctx.fillRect(110,10,80,60);\n<\/script>'},
+  {t:"strokeStyle", api:true, kind:"attr", d:"描边样式：设置线条/边框的颜色，配 stroke 系列使用", kw:["颜色","描边","样式"], ex:'<canvas id="c2" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c2").getContext("2d");\nctx.strokeStyle="#2E6FAB";\nctx.lineWidth=3;\nctx.strokeRect(10,10,80,60);\nctx.strokeStyle="#E76F51";\nctx.strokeRect(110,10,80,60);\n<\/script>'},
+  {t:"lineWidth", api:true, kind:"attr", d:"线条宽度：决定描边/画线的粗细（px）", kw:["线宽","粗细"], ex:'<canvas id="c3" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c3").getContext("2d");\nctx.strokeStyle="#2E6FAB";\nctx.lineWidth=1;ctx.beginPath();ctx.moveTo(10,20);ctx.lineTo(190,20);ctx.stroke();\nctx.lineWidth=4;ctx.beginPath();ctx.moveTo(10,45);ctx.lineTo(190,45);ctx.stroke();\nctx.lineWidth=10;ctx.beginPath();ctx.moveTo(10,75);ctx.lineTo(190,75);ctx.stroke();\n<\/script>'},
+  {t:"lineCap", api:true, kind:"attr", d:"线帽样式：线条两端的形状（butt 平头 / round 圆头 / square 方头）", kw:["线帽","圆头"], ex:'<canvas id="c4" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c4").getContext("2d");\nctx.strokeStyle="#2E6FAB";ctx.lineWidth=12;\nctx.lineCap="butt";ctx.beginPath();ctx.moveTo(10,20);ctx.lineTo(190,20);ctx.stroke();\nctx.lineCap="round";ctx.beginPath();ctx.moveTo(10,45);ctx.lineTo(190,45);ctx.stroke();\nctx.lineCap="square";ctx.beginPath();ctx.moveTo(10,75);ctx.lineTo(190,75);ctx.stroke();\n<\/script>'},
+  {t:"font", api:true, kind:"attr", d:"文字字体：设置字号和字体族，用法与 CSS font 简写一致", kw:["字体","文字"], ex:'<canvas id="c5" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c5").getContext("2d");\nctx.font="bold 30px 微软雅黑";\nctx.fillStyle="#2E6FAB";\nctx.fillText("Canvas 文字",10,55);\n<\/script>'},
+  {t:"textAlign", api:true, kind:"attr", d:"文字对齐：以 fillText 的 x 为基准（left / center / right）", kw:["对齐","文字"], ex:'<canvas id="c6" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c6").getContext("2d");\nctx.strokeStyle="#C9D2DC";ctx.beginPath();ctx.moveTo(100,0);ctx.lineTo(100,90);ctx.stroke();\nctx.fillStyle="#2E6FAB";ctx.font="14px 微软雅黑";\nctx.textAlign="left";ctx.fillText("left 左对齐",100,30);\nctx.textAlign="center";ctx.fillText("center 居中",100,55);\nctx.textAlign="right";ctx.fillText("right 右对齐",100,80);\n<\/script>'},
+  {t:"fillRect()", api:true, kind:"method", d:"填充矩形：fillRect(x, y, 宽, 高)，四角直接填色", kw:["矩形","填充","方块"], ex:'<canvas id="c7" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c7").getContext("2d");\nctx.fillStyle="#6FB1E8";\nctx.fillRect(10,10,80,60);\nctx.fillStyle="#E76F51";\nctx.fillRect(120,30,50,40);\n<\/script>'},
+  {t:"strokeRect()", api:true, kind:"method", d:"描边矩形：strokeRect(x, y, 宽, 高)，只画边框不填色", kw:["矩形","描边"], ex:'<canvas id="c8" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c8").getContext("2d");\nctx.strokeStyle="#2E6FAB";ctx.lineWidth=3;\nctx.strokeRect(10,10,80,60);\nctx.strokeStyle="#E76F51";\nctx.strokeRect(120,30,50,40);\n<\/script>'},
+  {t:"clearRect()", api:true, kind:"method", d:"清除区域：clearRect(x, y, 宽, 高)，把该区域擦成透明", kw:["清除","清空"], ex:'<canvas id="c9" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c9").getContext("2d");\nctx.fillStyle="#2E6FAB";ctx.fillRect(10,10,80,60);\nctx.fillStyle="#4E7A45";ctx.fillRect(110,10,80,60);\nctx.clearRect(40,30,60,40);\n<\/script>'},
+  {t:"beginPath()", api:true, kind:"method", d:"开始新路径：告诉画布接下来是一段全新图形，之前的路径不混入", kw:["路径","开始"], ex:'<canvas id="c10" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c10").getContext("2d");\nctx.beginPath();\nctx.moveTo(30,20);ctx.lineTo(90,70);ctx.lineTo(150,20);\nctx.strokeStyle="#2E6FAB";ctx.lineWidth=3;ctx.stroke();\n<\/script>'},
+  {t:"moveTo()", api:true, kind:"method", d:"移动画笔：moveTo(x, y) 把画笔抬起来挪到某点，不画线", kw:["移动","起点"], ex:'<canvas id="c11" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c11").getContext("2d");\nctx.beginPath();\nctx.moveTo(20,20);ctx.lineTo(180,20);\nctx.moveTo(20,50);ctx.lineTo(180,50);\nctx.moveTo(20,80);ctx.lineTo(180,80);\nctx.strokeStyle="#B45309";ctx.lineWidth=3;ctx.stroke();\n<\/script>'},
+  {t:"lineTo()", api:true, kind:"method", d:"画直线：lineTo(x, y) 从当前点连一条线到新点", kw:["直线","连线"], ex:'<canvas id="c12" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c12").getContext("2d");\nctx.beginPath();\nctx.moveTo(30,70);\nctx.lineTo(60,30);ctx.lineTo(100,70);ctx.lineTo(140,30);ctx.lineTo(170,70);\nctx.strokeStyle="#9B5DE5";ctx.lineWidth=3;ctx.stroke();\n<\/script>'},
+  {t:"arc()", api:true, kind:"method", d:"画圆弧：arc(x, y, 半径, 起始角, 结束角)，角度用弧度（Math.PI 表示 180°）", kw:["圆弧","圆"], ex:'<canvas id="c13" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c13").getContext("2d");\nctx.beginPath();\nctx.arc(100,45,38,0,Math.PI*2);\nctx.fillStyle="#2E6FAB";ctx.fill();\n<\/script>'},
+  {t:"closePath()", api:true, kind:"method", d:"闭合路径：从终点画一条直线回到起点，把图形封口", kw:["闭合","封闭"], ex:'<canvas id="c14" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c14").getContext("2d");\nctx.beginPath();\nctx.arc(100,45,38,0,Math.PI);\nctx.closePath();\nctx.fillStyle="#F4A261";ctx.fill();\nctx.strokeStyle="#B45309";ctx.lineWidth=2;ctx.stroke();\n<\/script>'},
+  {t:"fill()", api:true, kind:"method", d:"填充路径：把当前路径围成的区域填上 fillStyle 颜色", kw:["填充","颜色"], ex:'<canvas id="c15" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c15").getContext("2d");\nctx.beginPath();\nctx.moveTo(100,15);ctx.lineTo(170,70);ctx.lineTo(30,70);\nctx.closePath();\nctx.fillStyle="#E76F51";ctx.fill();\n<\/script>'},
+  {t:"stroke()", api:true, kind:"method", d:"描边路径：沿当前路径轮廓画线条，用 strokeStyle 颜色", kw:["描边","线条"], ex:'<canvas id="c16" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c16").getContext("2d");\nctx.beginPath();\nctx.moveTo(100,15);ctx.lineTo(170,70);ctx.lineTo(30,70);\nctx.closePath();\nctx.strokeStyle="#2E6FAB";ctx.lineWidth=4;ctx.stroke();\n<\/script>'},
+  {t:"fillText()", api:true, kind:"method", d:"填充文字：fillText(文字, x, y) 把文字画到画布上（实心）", kw:["文字","文本"], ex:'<canvas id="c17" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c17").getContext("2d");\nctx.font="bold 26px 微软雅黑";\nctx.fillStyle="#4E7A45";\nctx.fillText("Hello 深职大",10,55);\n<\/script>'},
+  {t:"strokeText()", api:true, kind:"method", d:"描边文字：strokeText(文字, x, y) 只描文字轮廓（空心字）", kw:["描边文字"], ex:'<canvas id="c18" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c18").getContext("2d");\nctx.font="bold 26px 微软雅黑";\nctx.strokeStyle="#2E6FAB";ctx.lineWidth=1;\nctx.strokeText("描边文字",20,55);\n<\/script>'},
+  {t:"translate()", api:true, kind:"method", d:"平移原点：translate(x, y) 把坐标系原点挪走，之后都以新原点为准", kw:["平移","移动原点"], ex:'<canvas id="c19" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c19").getContext("2d");\nctx.translate(100,45);\nctx.fillStyle="#2E6FAB";\nctx.fillRect(-20,-20,40,40);\n<\/script>'},
+  {t:"rotate()", api:true, kind:"method", d:"旋转画布：rotate(弧度) 绕当前原点旋转，之后绘制的内容都是斜的", kw:["旋转","角度"], ex:'<canvas id="c20" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c20").getContext("2d");\nctx.translate(60,45);ctx.rotate(Math.PI/6);\nctx.fillStyle="#2E6FAB";ctx.fillRect(-18,-18,36,36);\nctx.translate(80,0);ctx.rotate(Math.PI/6);\nctx.fillStyle="#E76F51";ctx.fillRect(-18,-18,36,36);\n<\/script>'},
+  {t:"save()", api:true, kind:"method", d:"保存状态：把当前的样式、变换存进栈里，后面可以恢复", kw:["保存状态","快照"], ex:'<canvas id="c21" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c21").getContext("2d");\nctx.save();\nctx.translate(60,45);ctx.rotate(Math.PI/4);\nctx.fillStyle="#2E6FAB";ctx.fillRect(-18,-18,36,36);\nctx.restore();\nctx.fillStyle="#E76F51";ctx.fillRect(120,20,36,36);\n<\/script>'},
+  {t:"restore()", api:true, kind:"method", d:"恢复状态：回到最近一次 save() 时保存的样式和变换", kw:["恢复状态","还原"], ex:'<canvas id="c22" width="200" height="90"></canvas>\n<script>\nvar ctx=document.getElementById("c22").getContext("2d");\nctx.fillStyle="#B45309";\nctx.save();\nctx.fillStyle="#2E6FAB";\nctx.fillRect(20,20,50,50);\nctx.restore();\nctx.fillRect(110,20,50,50);\n<\/script>'}
+]},
+
+{id:"ch9", title:"文本语义与交互", tags:[
   {t:"em", d:"强调文本，默认斜体；重读语气", kw:["emphasis","强调"], ex:'<p>我真的<em>非常</em>喜欢。</p>', at:[]},
   {t:"strong", d:"重要文本，默认加粗", kw:["bold","important","重要"], ex:'<p><strong>警告：</strong>请勿靠近。</p>', at:[]},
   {t:"small", d:"小号注释文本（版权、免责声明等）", kw:["copyright","小字"], ex:'<small>© 2026 版权所有</small>', at:[]},
@@ -1144,7 +1297,7 @@ const DATA = [
   ]}
 ]},
 
-{id:"ch9", title:"已废弃 / 过时标签", tags:[
+{id:"ch10", title:"已废弃 / 过时标签", tags:[
   {t:"acronym", d:"缩写词（已废弃）：用 <abbr> 替代", dep:true, kw:["abbr","缩写"], ex:'<acronym title="…">…</acronym> → <abbr>', at:[]},
   {t:"applet", d:"嵌入 Java 小程序（已废弃）：用 <embed> / <object> 替代", dep:true, kw:["java","plugin"], ex:'<applet code="App.class" width="200" height="100"></applet>', at:[
     ["align","对齐","","dep"],
@@ -1443,8 +1596,44 @@ const PREVIEW_FIX = {
   "!DOCTYPE": '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n  <meta charset="UTF-8">\n  <title>标准模式页面</title>\n</head>\n<body>\n  <h1>加上 DOCTYPE，浏览器按标准模式解析</h1>\n  <p>示例页面正常渲染，中文不乱码。</p>\n</body>\n</html>',
   "html": '<!DOCTYPE html>\n<html lang="zh-CN">\n<head>\n  <meta charset="UTF-8">\n  <title>文档根元素</title>\n</head>\n<body>\n  <h1>html 是文档根元素</h1>\n  <p>所有页面内容都写在 &lt;html&gt; 内部。</p>\n</body>\n</html>'
 };
+
+/* 好看好玩的案例：常用标签配上设计过的渲染效果，预览更直观、更有学习兴趣 */
+const FUN_PREVIEW = {
+  "h1":'<div style="padding:8px 2px"><p style="margin:0 0 6px;color:#2E6FAB;font-size:12px;letter-spacing:3px">HTML 5 · 入门手册</p><h1 style="margin:0;font-size:27px;font-weight:900;color:#1F2933">你好，网页世界</h1><p style="margin:8px 0 0;color:#5B6672;font-size:13px">一篇文章的大标题，代表整个页面的主题。</p></div>',
+  "h2":'<div style="padding:8px 2px"><h2 style="margin:0;font-size:18px;color:#1F2933;border-left:4px solid #2E6FAB;padding-left:10px">第 2 章 · 把页面分块</h2><p style="margin:8px 0 0 14px;color:#5B6672;font-size:13px">h2 一般用来做章节标题。</p></div>',
+  "h3":'<div style="padding:8px 2px"><h3 style="margin:0;font-size:15px;color:#1F2933"><span style="display:inline-block;background:#2E6FAB;color:#fff;border-radius:6px;font-size:12px;padding:2px 7px;margin-right:8px">3.1</span>为什么学 HTML</h3></div>',
+  "p":'<div style="padding:10px 2px"><p style="margin:0;color:#374151;font-size:14px;line-height:1.9;text-align:justify">网页就是一堆 <b>标签</b> 组成的文档。<mark style="background:#FFF3BF">标签</mark> 告诉浏览器"这里是一段文字、那里是一张图片"。学会标签，你就拿到了搭建网页的 <b>积木</b>。</p></div>',
+  "a":'<div style="padding:10px 2px"><p style="margin:0 0 12px"><a href="javascript:void 0" style="color:#2E6FAB;text-decoration:none;border-bottom:2px solid #2E6FAB;padding-bottom:1px;font-size:14px">点我去搜索（普通链接）</a></p><p style="margin:0 0 12px"><a href="javascript:void 0" style="color:#fff;background:#2E6FAB;border-radius:9px;padding:7px 16px;display:inline-block;font-size:13px">按钮式链接</a></p><p style="margin:0;color:#5B6672;font-size:12px">链接要写 href 才可点击，可长这样也可长那样。</p></div>',
+  "img":'<div style="padding:8px 2px"><svg viewBox="0 0 320 170" style="width:100%;border-radius:12px;display:block;box-shadow:0 4px 14px rgba(31,41,51,.10)"><rect width="320" height="170" fill="#9BD6F5"/><circle cx="250" cy="52" r="26" fill="#FFC94D"/><path d="M0 170 L90 60 L150 130 L230 40 L320 170 Z" fill="#3E8E5A"/><path d="M0 170 L320 170 L320 145 L230 95 L150 150 L90 100 Z" fill="#2E6E46"/><text x="16" y="28" font-size="15" fill="#FFFFFF" font-family="sans-serif">好想去旅行</text></svg><p style="margin:8px 0 0;color:#5B6672;font-size:12px">图片让页面变得好看，记得写 alt 描述。</p></div>',
+  "table":'<div style="padding:4px 2px"><table style="width:100%;border-collapse:collapse;font-size:12.5px"><caption style="font-size:13px;font-weight:700;margin-bottom:6px;color:#1F2933">我的课程表</caption><tr><th style="background:#2E6FAB;color:#fff;padding:7px;text-align:left">时间</th><th style="background:#2E6FAB;color:#fff;padding:7px">周一</th><th style="background:#2E6FAB;color:#fff;padding:7px">周二</th></tr><tr><td style="padding:7px;border:1px solid #E4E9EF">8:00</td><td style="padding:7px;border:1px solid #E4E9EF">高数</td><td style="padding:7px;border:1px solid #E4E9EF">英语</td></tr><tr><td style="padding:7px;border:1px solid #E4E9EF">10:00</td><td style="padding:7px;border:1px solid #E4E9EF">Python</td><td style="padding:7px;border:1px solid #E4E9EF">大数据</td></tr></table><p style="margin:8px 0 0;color:#5B6672;font-size:12px">表格天生适合排"行列对齐"的数据。</p></div>',
+  "form":'<div style="padding:8px 2px"><form style="background:#F5F8FC;border:1px solid #E4E9EF;border-radius:12px;padding:12px"><p style="margin:0 0 10px;font-size:14px;font-weight:700">编程班报名表</p><p style="margin:0 0 8px"><input placeholder="请输入你的名字" style="width:100%;box-sizing:border-box;border:1px solid #C9D2DC;border-radius:8px;padding:7px 10px;font-size:13px"></p><button type="submit" style="background:#2E6FAB;color:#fff;border:0;border-radius:8px;padding:8px 18px;font-size:13px">提交报名</button></form><p style="margin:8px 0 0;color:#5B6672;font-size:12px">form 把输入框和按钮组合成一个表单。</p></div>',
+  "input":'<div style="padding:8px 2px;display:grid;gap:8px"><label style="font-size:13px">账号：<input type="text" value="yinying@szpt" style="border:1px solid #C9D2DC;border-radius:8px;padding:7px 10px;font-size:13px;width:100%;box-sizing:border-box"></label><label style="font-size:13px">密码：<input type="password" value="123456" style="border:1px solid #C9D2DC;border-radius:8px;padding:7px 10px;font-size:13px;width:100%;box-sizing:border-box"></label><div style="font-size:13px"><label><input type="checkbox" checked> 记住我</label>　<label><input type="radio" name="g" checked> 男生</label> <label><input type="radio" name="g"> 女生</label></div><input type="range" value="70" style="width:100%"></div>',
+  "button":'<div style="padding:10px 2px;display:flex;gap:10px;flex-wrap:wrap;align-items:center"><button style="background:#2E6FAB;color:#fff;border:0;border-radius:10px;padding:9px 20px;font-size:14px;box-shadow:0 4px 10px rgba(46,111,171,.25)">主要按钮</button><button style="background:#fff;color:#2E6FAB;border:1.5px solid #2E6FAB;border-radius:10px;padding:9px 20px;font-size:14px">次要按钮</button><button style="background:#FF5C5C;color:#fff;border:0;border-radius:10px;padding:9px 20px;font-size:14px">删除按钮</button></div>',
+  "ul":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px;font-weight:700">今天要做的</p><ul style="margin:0;padding-left:20px;font-size:13px;color:#374151"><li style="margin:4px 0">背 30 个四级单词</li><li style="margin:4px 0">完成 Python 作业</li><li style="margin:4px 0;color:#9AA0A6;text-decoration:line-through">刷一小时手机（已划掉）</li></ul></div>',
+  "ol":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px;font-weight:700">做一杯奶茶</p><ol style="margin:0;padding-left:20px;font-size:13px;color:#374151"><li style="margin:4px 0">泡红茶 3 分钟</li><li style="margin:4px 0">加糖和牛奶</li><li style="margin:4px 0">加珍珠，摇一摇</li></ol></div>',
+  "blockquote":'<div style="padding:8px 2px"><blockquote style="margin:0;background:#F5F8FC;border-left:4px solid #2E6FAB;border-radius:0 12px 12px 0;padding:12px 14px;font-size:14px;color:#374151">学习 HTML 就像学做饭，先会几个基础动作，就能做出自己的菜。<footer style="margin-top:6px;color:#9AA0A6;font-size:12px">—— 老师的口头禅</footer></blockquote></div>',
+  "mark":'<div style="padding:10px 2px;font-size:14px;line-height:2">考试重点：<mark style="background:#FFF3BF;padding:1px 5px;border-radius:4px">margin 和 padding 的区别</mark>，要背下来！</div>',
+  "progress":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px">下载进度</p><progress value="70" max="100" style="width:100%;height:12px;border-radius:6px"></progress><p style="margin:6px 0 0;color:#5B6672;font-size:12px">已下载 70 / 100 MB</p></div>',
+  "meter":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px">800 米跑步成绩（满分 100）</p><meter value="86" min="0" max="100" style="width:100%;height:14px"></meter><p style="margin:6px 0 0;color:#4E7A45;font-size:12px">优秀！继续保持</p></div>',
+  "hr":'<div style="padding:12px 2px"><p style="font-size:14px;margin:0 0 8px">上半部分的内容</p><hr style="border:0;height:3px;border-radius:3px;background:linear-gradient(90deg,#2E6FAB,#6FB1E8,#E9F1F9)"><p style="font-size:14px;margin:8px 0 0">下半部分的内容</p></div>',
+  "strong":'<div style="padding:8px 2px;font-size:14px;line-height:2"><strong style="font-weight:800;color:#1F2933">加粗文字</strong> 强调重要内容；<em style="font-style:italic;color:#2E6FAB">斜体文字</em> 表示语气或书名。</div>',
+  "code":'<div style="padding:10px 2px;font-size:13px">保存：<kbd style="background:#1F2933;color:#fff;border-radius:6px;padding:2px 8px;font-family:monospace">Ctrl + S</kbd>　命令：<code style="background:#F2F5F9;color:#C7254E;border-radius:6px;padding:2px 8px;font-family:monospace">print("你好")</code><br><samp style="margin-top:8px;display:inline-block;background:#1F2933;color:#A3D29A;border-radius:6px;padding:6px 10px;font-family:monospace">你好</samp></div>',
+  "details":'<div style="padding:8px 2px"><details style="background:#F5F8FC;border:1px solid #E4E9EF;border-radius:12px;padding:10px 14px"><summary style="cursor:pointer;font-size:14px;font-weight:700">答案在这里，点我展开</summary><p style="margin:8px 0 0;font-size:13px;color:#374151">详情区默认折叠，点一下才显示——适合做"先想一想再看答案"。</p></details></div>',
+  "dl":'<div style="padding:8px 2px"><dl style="margin:0;font-size:13px"><dt style="font-weight:700;color:#1F2933;padding:6px 10px;background:#F5F8FC;border-radius:8px 8px 0 0">HTML</dt><dd style="margin:0;padding:6px 10px;border:1px solid #E4E9EF;border-top:0;border-radius:0 0 8px 8px;color:#374151">超文本标记语言，网页的骨架。</dd></dl></div>',
+  "del":'<div style="padding:10px 2px;font-size:14px"><del style="color:#9AA0A6;text-decoration:line-through">这个方案被否掉了</del>　<ins style="color:#4E7A45;text-decoration:none;border-bottom:2px solid #4E7A45">换成这个新方案</ins></div>',
+  "sup":'<div style="padding:10px 2px;font-size:15px">面积公式：S = πr<sup style="color:#2E6FAB">2</sup>（上标）；H<sub style="color:#2E6FAB">2</sub>O 是水（下标）。</div>',
+  "abbr":'<div style="padding:10px 2px;font-size:14px">鼠标悬停看看：<abbr title="HyperText Markup Language" style="color:#2E6FAB;border-bottom:1px dashed #2E6FAB;cursor:help">HTML</abbr> 是什么的缩写？</div>',
+  "figure":'<div style="padding:8px 2px"><figure style="margin:0"><svg viewBox="0 0 320 120" style="width:100%;border-radius:12px;display:block;background:linear-gradient(135deg,#7F7FD5,#86A8E7)"><text x="160" y="68" text-anchor="middle" font-size="22" fill="#fff" font-family="sans-serif">一张好看的图</text></svg><figcaption style="margin-top:6px;color:#5B6672;font-size:12px">图 1 · figure 给图片配一个说明文字</figcaption></figure></div>',
+  "small":'<div style="padding:10px 2px;text-align:center"><p style="font-size:15px;margin:0 0 4px">正文内容</p><small style="color:#9AA0A6;font-size:11px">© 2026 深职大 大数据3班 · 学习手册，未经允许不得商用</small></div>',
+  "select":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px">选择你喜欢的编程语言</p><select style="border:1px solid #C9D2DC;border-radius:8px;padding:7px 12px;font-size:13px;background:#fff"><option>Python</option><option>Java</option><option>C++</option><option>JavaScript</option></select></div>',
+  "textarea":'<div style="padding:8px 2px"><p style="margin:0 0 6px;font-size:13px">给老师留言</p><textarea rows="3" placeholder="写点什么……" style="width:100%;box-sizing:border-box;border:1px solid #C9D2DC;border-radius:8px;padding:8px 10px;font-size:13px;font-family:inherit;resize:vertical"></textarea></div>',
+  "fieldset":'<div style="padding:8px 2px"><fieldset style="border:1.5px solid #C9D2DC;border-radius:12px;padding:10px 12px 12px"><legend style="font-size:13px;color:#2E6FAB;padding:0 6px;font-weight:700">个人信息</legend><p style="margin:0 0 6px;font-size:13px">姓名：<input type="text" value="廖滢滢" style="border:1px solid #C9D2DC;border-radius:6px;padding:5px 8px;font-size:13px"></p><p style="margin:0;font-size:13px">班级：<input type="text" value="大数据 3 班" style="border:1px solid #C9D2DC;border-radius:6px;padding:5px 8px;font-size:13px"></p></fieldset></div>',
+  "q":'<div style="padding:10px 2px;font-size:14px">老师说：<q style="color:#2E6FAB">实践出真知</q>，所以要自己动手敲代码。</div>',
+  "canvas":'<div style="padding:8px 2px"><canvas id="funCanvas" width="280" height="120" style="width:100%;height:auto;border-radius:12px;background:#F5F8FC"></canvas><script>var c=document.getElementById("funCanvas"),x=c.getContext("2d");x.fillStyle="#2E6FAB";x.beginPath();x.arc(60,60,34,0,Math.PI*2);x.fill();x.fillStyle="#4E7A45";x.beginPath();x.arc(150,60,22,0,Math.PI*2);x.fill();x.fillStyle="#B45309";x.beginPath();x.arc(210,60,14,0,Math.PI*2);x.fill();x.fillStyle="#fff";x.font="14px sans-serif";x.fillText("canvas 画图",205,110);<\/script></div>'
+};
 function previewDoc(t){
   if(PREVIEW_FIX[t.t]) return PREVIEW_FIX[t.t];
+  if(FUN_PREVIEW[t.t]) return '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:12px;font-family:Noto Sans SC,PingFang SC,Microsoft YaHei,sans-serif">'+FUN_PREVIEW[t.t]+'</body></html>';
   let ex = t.ex;
   if(ex.indexOf("…") !== -1){
     ex = ex
@@ -1495,6 +1684,7 @@ function tagHit(t,q){
 function chips(t,dep){
   let s = "";
   if(dep) s += '<span class="chip dep">废弃</span>';
+  if(t.api) s += '<span class="chip '+(t.kind==="method"?"api-m":"api-a")+'">'+(t.kind==="method"?"方法":"属性")+'</span>';
   if(t.new) s += '<span class="chip new">HTML5</span>';
   return s;
 }
@@ -1525,9 +1715,24 @@ const CH_INTRO = {
   "ch4":"让页面活起来：点出去的链接、显示的图片、可点击的图片地图。",
   "ch5":"用表格展示行列数据：成绩表、价目表、对比表，注意表头与分组。",
   "ch6":"与用户交互的一章：输入框、按钮、下拉、进度条——网页收集信息全靠它们。",
-  "ch7":"页面上的多媒体：音频、视频、画布 Canvas、SVG 矢量图、内嵌页面。",
-  "ch8":"给文字更精确的含义：强调、引用、时间、代码、折叠、对话框。",
-  "ch9":"以前用、现在别用的标签。看到它们要认得，并且知道用什么替代。"
+  "ch7":"页面上的多媒体与绘图：音频、视频、SVG 矢量图与各种绘图标签。",
+  "ch8":"Canvas 是 JS 绘图区：先拿 ctx，再设样式、画形状、写文字。这一章把最常用的 2D 绘图 API 一次讲透。",
+  "ch9":"给文字更精确的含义：强调、引用、时间、代码、折叠、对话框。",
+  "ch10":"以前用、现在别用的标签。看到它们要认得，并且知道用什么替代。"
+};
+
+/* 每章小插画：扁平线描风，贴合章节主题 */
+const CH_ART = {
+  "ch1":'<svg viewBox="0 0 120 64"><rect x="10" y="6" width="100" height="52" rx="8" fill="#E9F1F9"/><rect x="10" y="6" width="100" height="14" rx="8" fill="#D5E5F5"/><circle cx="20" cy="13" r="2.5" fill="#9AA0A6"/><rect x="20" y="28" width="40" height="22" rx="4" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5"/><rect x="66" y="28" width="34" height="9" rx="3" fill="#6FB1E8"/><rect x="66" y="41" width="34" height="9" rx="3" fill="#6FB1E8"/></svg>',
+  "ch2":'<svg viewBox="0 0 120 64"><rect x="8" y="8" width="104" height="48" rx="8" fill="#E9F1F9"/><rect x="14" y="14" width="24" height="36" rx="4" fill="#2E6FAB"/><rect x="42" y="14" width="58" height="16" rx="4" fill="#6FB1E8"/><rect x="42" y="34" width="58" height="16" rx="4" fill="#FFFFFF" stroke="#6FB1E8" stroke-width="1.5"/></svg>',
+  "ch3":'<svg viewBox="0 0 120 64"><circle cx="22" cy="20" r="4" fill="#2E6FAB"/><rect x="34" y="17" width="70" height="6" rx="3" fill="#6FB1E8"/><circle cx="22" cy="34" r="4" fill="#2E6FAB"/><rect x="34" y="31" width="55" height="6" rx="3" fill="#6FB1E8"/><circle cx="22" cy="48" r="4" fill="#2E6FAB"/><rect x="34" y="45" width="62" height="6" rx="3" fill="#6FB1E8"/></svg>',
+  "ch4":'<svg viewBox="0 0 120 64"><rect x="10" y="12" width="36" height="26" rx="6" fill="#E9F1F9" stroke="#2E6FAB" stroke-width="1.5"/><circle cx="20" cy="19" r="3" fill="#B45309"/><path d="M27 19 L40 19" stroke="#B45309" stroke-width="1.5"/><path d="M60 25 L94 25" stroke="#2E6FAB" stroke-width="2"/><path d="M86 20 L94 25 L86 30" fill="none" stroke="#2E6FAB" stroke-width="2"/><path d="M58 20 L50 25 L58 30" fill="none" stroke="#2E6FAB" stroke-width="2"/></svg>',
+  "ch5":'<svg viewBox="0 0 120 64"><rect x="14" y="10" width="92" height="44" rx="6" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5"/><rect x="14" y="10" width="92" height="12" rx="6" fill="#2E6FAB"/><path d="M44 22 v32 M76 22 v32 M14 34 h92 M14 46 h92" stroke="#C9D2DC" stroke-width="1.5"/><circle cx="20" cy="16" r="2" fill="#FFFFFF"/><circle cx="52" cy="16" r="2" fill="#FFFFFF"/><circle cx="84" cy="16" r="2" fill="#FFFFFF"/></svg>',
+  "ch6":'<svg viewBox="0 0 120 64"><rect x="16" y="12" width="88" height="40" rx="8" fill="#E9F1F9"/><rect x="24" y="20" width="72" height="10" rx="5" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5"/><rect x="24" y="36" width="42" height="10" rx="5" fill="#2E6FAB"/><path d="M30 41 l5 5 l8 -8" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  "ch7":'<svg viewBox="0 0 120 64"><rect x="14" y="12" width="92" height="40" rx="10" fill="#E9F1F9" stroke="#2E6FAB" stroke-width="1.5"/><path d="M50 24 L70 32 L50 40 Z" fill="#2E6FAB"/><rect x="24" y="45" width="72" height="3" rx="1.5" fill="#C9D2DC"/><rect x="24" y="45" width="40" height="3" rx="1.5" fill="#2E6FAB"/></svg>',
+  "ch8":'<svg viewBox="0 0 120 64"><rect x="6" y="8" width="96" height="48" rx="8" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5"/><rect x="12" y="14" width="84" height="36" rx="4" fill="#F5F8FC"/><circle cx="34" cy="32" r="11" fill="#6FB1E8"/><path d="M52 22 L88 22 M52 32 L88 32 M52 42 L88 42" stroke="#C9D2DC" stroke-width="2"/><path d="M102 8 L112 20 L100 30" fill="none" stroke="#B45309" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M112 20 l5 4" stroke="#B45309" stroke-width="3" stroke-linecap="round"/></svg>',
+  "ch9":'<svg viewBox="0 0 120 64"><rect x="16" y="12" width="60" height="34" rx="8" fill="#FFFFFF" stroke="#2E6FAB" stroke-width="1.5"/><path d="M76 34 l12 12" stroke="#2E6FAB" stroke-width="1.5"/><circle cx="92" cy="50" r="7" fill="#6FB1E8"/><text x="26" y="32" font-size="11" fill="#2E6FAB" font-family="sans-serif" font-weight="700">你好！</text></svg>',
+  "ch10":'<svg viewBox="0 0 120 64"><path d="M38 20 L82 20 L76 50 Q75 54 70 54 L50 54 Q45 54 44 50 Z" fill="#E9F1F9" stroke="#B45309" stroke-width="1.5"/><path d="M36 20 h48 M42 20 l3 -6 h30 l3 6" stroke="#B45309" stroke-width="1.5" fill="none"/><path d="M56 30 L64 46 M64 30 L56 46" stroke="#B45309" stroke-width="2" stroke-linecap="round"/></svg>'
 };
 
 function renderChapters(){
@@ -1544,16 +1749,25 @@ function renderChapters(){
       const matched = tagHit(t,q);
       if(matched) hit++, chHit++;
       const dep = !!t.dep;
-      rows += '<tr class="'+(matched?"":"miss")+'" data-tag="'+t.t+'">'
-        + '<td><button class="tag-link" data-open="'+t.t+'" aria-haspopup="dialog"><span class="full">&lt;'+t.t+'&gt;</span>'+chips(t,dep)+'</button></td>'
-        + '<td class="desc">'+mark(t.d,q)+'</td>'
-        + '<td class="ex"><code>'+esc(t.ex)+'</code></td>'
-        + '</tr>';
+      if(t.api){
+        const apiName = t.kind==="method" ? t.t : "ctx."+t.t;
+        rows += '<tr class="'+(matched?"":"miss")+'" data-tag="'+t.t+'">'
+          + '<td><button class="tag-link api-link" data-open="'+t.t+'" aria-haspopup="dialog"><code class="api-name">'+esc(apiName)+'</code>'+chips(t,dep)+'</button></td>'
+          + '<td class="desc">'+mark(t.d,q)+'</td>'
+          + '<td class="ex"><code>'+esc(t.ex)+'</code></td>'
+          + '</tr>';
+      }else{
+        rows += '<tr class="'+(matched?"":"miss")+'" data-tag="'+t.t+'">'
+          + '<td><button class="tag-link" data-open="'+t.t+'" aria-haspopup="dialog"><span class="full">&lt;'+t.t+'&gt;</span>'+chips(t,dep)+'</button></td>'
+          + '<td class="desc">'+mark(t.d,q)+'</td>'
+          + '<td class="ex"><code>'+esc(t.ex)+'</code></td>'
+          + '</tr>';
+      }
     });
     const hide = q && chHit===0;
     html += '<section class="chapter'+(hide?" hide":"")+'" id="'+chId+'">'
       + '<div class="ch-head"><span class="ch-num">第'+toCn(ci+1)+'章</span><span class="ch-title">'+c.title+'</span><span class="ch-count">'+c.tags.length+' 个标签</span></div>'
-      + '<p class="ch-intro">'+(CH_INTRO[chId]||"")+'</p>'
+      + '<div class="ch-head"><div class="ch-art">'+(CH_ART[chId]||"")+'</div><p class="ch-intro">'+esc(CH_INTRO[chId]||"")+'</p></div>'
       + '<div class="ch-empty">本组暂无匹配的标签</div>'
       + '<div class="tbl-wrap"><table class="tags"><colgroup><col><col><col></colgroup>'
       + '<thead><tr><th>标签</th><th>说明</th><th>示例</th></tr></thead><tbody>'+rows+'</tbody></table></div>'
@@ -1602,10 +1816,15 @@ function openModal(name,trigger){
   document.getElementById("modal").classList.add("open");
   document.getElementById("modal").setAttribute("aria-hidden","false");
   document.body.classList.add("lock");
-  document.getElementById("mTagName").textContent = "<"+t.t+">";
-  let badges = '<span class="badge '+(t.empty?"single":"double")+'">'+(t.empty?"单标签":"双标签")+'</span>';
-  if(t.dep) badges += '<span class="badge dep">已废弃</span>';
-  if(t.new) badges += '<span class="badge new">HTML5 新增</span>';
+  document.getElementById("mTagName").textContent = t.api ? (t.kind==="method"?t.t:"ctx."+t.t) : "<"+t.t+">";
+  let badges = '';
+  if(t.api){
+    badges = '<span class="badge '+(t.kind==="method"?"method":"attr")+'">'+(t.kind==="method"?"方法":"属性")+'</span>';
+  }else{
+    badges = '<span class="badge '+(t.empty?"single":"double")+'">'+(t.empty?"单标签":"双标签")+'</span>';
+    if(t.dep) badges += '<span class="badge dep">已废弃</span>';
+    if(t.new) badges += '<span class="badge new">HTML5 新增</span>';
+  }
   badges += '<span class="badge double" style="background:var(--paper);color:var(--ink-2)">第'+c.cn+'章 · '+c.title+'</span>';
   document.getElementById("mBadges").innerHTML = badges;
 
@@ -1616,18 +1835,20 @@ function openModal(name,trigger){
   /* 2. 示例：怎么写 */
   body += '<div class="m-sec m-example"><h4>示例</h4><button class="copy-btn" id="copyBtn"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg><span id="copyLabel">复制代码</span></button><pre>'+hl(t.ex)+'</pre></div>';
   /* 3. 专属属性：这个标签自己的属性 */
-  body += '<div class="m-sec"><h4>专属属性</h4>';
-  if(t.at && t.at.length){
-    body += '<table class="attr-tbl"><colgroup><col><col><col></colgroup><thead><tr><th>属性</th><th>取值</th><th>说明</th></tr></thead><tbody>';
-    t.at.forEach(a=>{
-      const an = a[0], av = a[2]||"", ad = a[1], adep = a[3]==="dep", anew = a[3]==="new";
-      body += '<tr><td class="an'+(adep?" dep":"")+'">'+esc(an)+(adep?' <span class="chip dep">废弃</span>':(anew?' <span class="chip new">HTML5</span>':''))+'</td><td class="av">'+esc(av||"—")+'</td><td>'+esc(ad)+'</td></tr>';
-    });
-    body += '</tbody></table>';
-  }else{
-    body += '<p class="global-list" style="margin:0">无专属属性，仅支持全局属性（见下方折叠区）。</p>';
+  if(!t.api){
+    body += '<div class="m-sec"><h4>专属属性</h4>';
+    if(t.at && t.at.length){
+      body += '<table class="attr-tbl"><colgroup><col><col><col></colgroup><thead><tr><th>属性</th><th>取值</th><th>说明</th></tr></thead><tbody>';
+      t.at.forEach(a=>{
+        const an = a[0], av = a[2]||"", ad = a[1], adep = a[3]==="dep", anew = a[3]==="new";
+        body += '<tr><td class="an'+(adep?" dep":"")+'">'+esc(an)+(adep?' <span class="chip dep">废弃</span>':(anew?' <span class="chip new">HTML5</span>':''))+'</td><td class="av">'+esc(av||"—")+'</td><td>'+esc(ad)+'</td></tr>';
+      });
+      body += '</tbody></table>';
+    }else{
+      body += '<p class="global-list" style="margin:0">无专属属性，仅支持全局属性（见下方折叠区）。</p>';
+    }
+    body += '</div>';
   }
-  body += '</div>';
   /* 4. 属性案例：专属属性怎么用，带代码讲解 */
   const demos = AD[t.t] || [];
   if(demos.length){
@@ -1650,10 +1871,12 @@ function openModal(name,trigger){
     body += '<div class="m-sec m-faq"><h4>常见问题</h4>'+faqs.map(f=>'<div class="faq-item"><b>Q：'+esc(f[0])+'</b><p>'+esc(f[1])+'</p></div>').join("")+'</div>';
   }
   /* 5. 全局属性：所有标签通用，默认折叠不占主视线 */
-  body += '<details class="m-sec g-details"><summary><span class="g-sum-title">全局属性（所有标签通用）</span><span class="g-sum-tip">'+GLOBAL_ATTRS.length+' 条 · 点开查看</span></summary>'
-    + '<div class="global-list">'+GLOBAL_ATTRS.map(g=>'<div><code>'+esc(g[0])+'</code> '+esc(g[1])+'</div>').join("")+'</div>'
-    + '<div class="m-example"><h4>全局属性综合示例（一段代码全用上）</h4><button class="copy-btn" id="copyGEx"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg><span id="copyGExLabel">复制代码</span></button><pre>'+hl(GLOBAL_EXAMPLE)+'</pre><div class="preview-box"><iframe title="全局属性综合示例预览" sandbox="allow-scripts allow-forms allow-modals allow-popups" srcdoc="'+esc(GLOBAL_EXAMPLE)+'"></iframe></div></div>'
-    + '</details>';
+  if(!t.api){
+    body += '<details class="m-sec g-details"><summary><span class="g-sum-title">全局属性（所有标签通用）</span><span class="g-sum-tip">'+GLOBAL_ATTRS.length+' 条 · 点开查看</span></summary>'
+      + '<div class="global-list">'+GLOBAL_ATTRS.map(g=>'<div><code>'+esc(g[0])+'</code> '+esc(g[1])+'</div>').join("")+'</div>'
+      + '<div class="m-example"><h4>全局属性综合示例（一段代码全用上）</h4><button class="copy-btn" id="copyGEx"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg><span id="copyGExLabel">复制代码</span></button><pre>'+hl(GLOBAL_EXAMPLE)+'</pre><div class="preview-box"><iframe title="全局属性综合示例预览" sandbox="allow-scripts allow-forms allow-modals allow-popups" srcdoc="'+esc(GLOBAL_EXAMPLE)+'"></iframe></div></div>'
+      + '</details>';
+  }
   document.getElementById("mBody").innerHTML = body;
   /* 属性案例预览开关 */
   document.querySelectorAll(".ad-toggle").forEach(b=>{
